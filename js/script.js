@@ -13,6 +13,8 @@ editableDiv.appendChild(cursor);
 let typing = true;       // 打字机是否还在打字
 let buttonsShown = false; // 按钮是否已经生成过
 
+let buttonsShown = false;
+
 // 打字机完成后生成按钮
 function typeWriter() {
   if (!typing) return;
@@ -22,7 +24,8 @@ function typeWriter() {
     editableDiv.insertBefore(span, cursor);
     i++;
     setTimeout(typeWriter, 100);
-  } else {typing=false;
+  } else {
+    typing = false;
     if (!buttonsShown) {
       setupRandomButtons();
       buttonsShown = true;
@@ -36,11 +39,13 @@ editableDiv.addEventListener('click', () => {
   editableDiv.contentEditable = true;
   editableDiv.focus();
 
- if (typing) {
-  typing = false; // 停止打字机
-  const remainingText = text.slice(i);
-  editableDiv.appendChild(document.createTextNode(remainingText));
-}
+  if (typing) {
+    typing = false; // 停止打字机
+    const remainingText = text.slice(i);
+    editableDiv.appendChild(document.createTextNode(remainingText));
+  }
+
+  // 不再调用 setupRandomButtons，这里只允许打断文字
 });
 
 // 添加便利贴
