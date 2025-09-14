@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>何炜坤的个人主页</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weikunheweikun/homepage@latest/css/style.css">
+</head>
+<body>
+
+<header>
+  <h1>何炜坤的个人主页</h1>
+  <h2>这是一个神奇的小天地</h2>
+</header>
+
+<main>
+  <div class="typewriter" id="typewriter">
+    <div id="editable" contenteditable="false"></div>
+  </div>
+</main>
+
+
+
+<!-- 通用弹窗（你页面已有的 modal） -->
+<div class="modal" id="modal" style="display:none;position:fixed;z-index:2000;top:50%;left:50%;transform:translate(-50%,-50%);">
+  <h3 id="modal-title">标题</h3>
+  <div id="modal-content" style="white-space:normal;margin-top:8px">内容</div>
+  <div style="text-align:right;margin-top:12px">
+    <button class="btn" onclick="closeModal()">关闭</button>
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/weikunheweikun/homepage@latest/js/script.js"></script>
+
+</body>
+</html>
