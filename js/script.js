@@ -147,7 +147,7 @@ function openItemModal(item){
     </div>
     <div style="margin-top:6px;">
       <label>内容：</label>
-      <textarea id="note-input" rows="5"placeholder="你想说的话或者想分享的事情~"
+      <textarea id="note-input" rows="5"placeholder="你想说的话或者想分享的事情~我可以看到的哦~"
         style="display:block;margin:4px auto;width:90%;
                border:2px solid #2E4E3D;border-radius:6px;
                padding:4px 6px;resize:none;font-size:16px;"></textarea>
