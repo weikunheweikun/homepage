@@ -11,8 +11,9 @@ const cursor = document.createElement('span');
 cursor.className = 'cursor';
 editableDiv.appendChild(cursor);
 
-let buttonsShown = false; // 新增标记
+let buttonsShown = false; // 按钮是否已经生成过
 
+// 打字机完成后生成按钮
 function typeWriter() {
   if (!typing) return;
   if (i < text.length) {
@@ -23,12 +24,13 @@ function typeWriter() {
     setTimeout(typeWriter, 100);
   } else {
     if (!buttonsShown) {
-      setupRandomButtons(); // 打字完成显示按钮
+      setupRandomButtons();
       buttonsShown = true;
     }
   }
 }
 
+// 点击 editableDiv 打断打字机
 editableDiv.addEventListener('click', () => {
   if (cursor.parentNode) cursor.remove();
   editableDiv.contentEditable = true;
@@ -41,8 +43,8 @@ editableDiv.addEventListener('click', () => {
     span.textContent = remainingText;
     editableDiv.appendChild(span);
 
-    if (!buttonsShown) {
-      setupRandomButtons(); // 打断打字机也显示按钮
+    if (!buttonsShown) {  // ← 只生成一次
+      setupRandomButtons();
       buttonsShown = true;
     }
   }
