@@ -4,13 +4,13 @@ const editableDiv = document.getElementById('editable');
 editableDiv.contentEditable = false;
 
 let i = 0;
-let typing = true; // 打字状态标记
 
 // 红色光标
 const cursor = document.createElement('span');
 cursor.className = 'cursor';
 editableDiv.appendChild(cursor);
 
+let typing = true;       // 打字机是否还在打字
 let buttonsShown = false; // 按钮是否已经生成过
 
 // 打字机完成后生成按钮
@@ -22,7 +22,7 @@ function typeWriter() {
     editableDiv.insertBefore(span, cursor);
     i++;
     setTimeout(typeWriter, 100);
-  } else {
+  } else {typing=false;
     if (!buttonsShown) {
       setupRandomButtons();
       buttonsShown = true;
@@ -36,18 +36,11 @@ editableDiv.addEventListener('click', () => {
   editableDiv.contentEditable = true;
   editableDiv.focus();
 
-  if (typing) {
-    typing = false;
-    const remainingText = text.slice(i);
-    const span = document.createElement('span');
-    span.textContent = remainingText;
-    editableDiv.appendChild(span);
-
-    if (!buttonsShown) {  // ← 只生成一次
-      setupRandomButtons();
-      buttonsShown = true;
-    }
-  }
+ if (typing) {
+  typing = false; // 停止打字机
+  const remainingText = text.slice(i);
+  editableDiv.appendChild(document.createTextNode(remainingText));
+}
 });
 
 // 添加便利贴
