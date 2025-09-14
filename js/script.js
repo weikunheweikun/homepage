@@ -11,7 +11,8 @@ const cursor = document.createElement('span');
 cursor.className = 'cursor';
 editableDiv.appendChild(cursor);
 
-// 打字机函数
+let buttonsShown = false; // 新增标记
+
 function typeWriter() {
   if (!typing) return;
   if (i < text.length) {
@@ -21,12 +22,13 @@ function typeWriter() {
     i++;
     setTimeout(typeWriter, 100);
   } else {
-    setupRandomButtons(); // 打字完成显示按钮
+    if (!buttonsShown) {
+      setupRandomButtons(); // 打字完成显示按钮
+      buttonsShown = true;
+    }
   }
 }
-window.onload = typeWriter;
 
-// 点击 editableDiv 切换默认光标，并打断打字机
 editableDiv.addEventListener('click', () => {
   if (cursor.parentNode) cursor.remove();
   editableDiv.contentEditable = true;
@@ -38,7 +40,11 @@ editableDiv.addEventListener('click', () => {
     const span = document.createElement('span');
     span.textContent = remainingText;
     editableDiv.appendChild(span);
-    setupRandomButtons();
+
+    if (!buttonsShown) {
+      setupRandomButtons(); // 打断打字机也显示按钮
+      buttonsShown = true;
+    }
   }
 });
 
