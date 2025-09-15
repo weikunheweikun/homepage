@@ -282,6 +282,7 @@ function setupRandomButtons(){
     {text: "深夜感想", content: "原来人活着也有这么累的时候~"}, 
     {text: "待办事项", content: "希望你没有待办事项~"},
     {text: "更新计划", content: "应该是不定期的，最迟一周一更~"},
+    {text: "小秘密", content: "网页上的字可以编辑的~"},
     {text: "写张小纸条吧", content: ""}
   ];
   createRandomButtons(buttonData);
