@@ -40,7 +40,13 @@ editableDiv.addEventListener('click', () => {
   if (typing) {
     typing = false; // 停止打字机
     const remainingText = text.slice(i);
-    editableDiv.appendChild(document.createTextNode(remainingText));
+    // 用 span 包裹每个字符
+    for(const char of remainingText){
+      const span = document.createElement('span');
+      span.textContent = char;
+      editableDiv.appendChild(span);
+    }
+
     setupRandomButtons();
   }
 });
