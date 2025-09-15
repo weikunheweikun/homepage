@@ -51,6 +51,12 @@
     white-space: pre-wrap;
     min-width: 20px;
     position: relative;
+
+  line-height: 1.8;       /* 保持行高稳定 */
+  vertical-align: middle; /* 保证 inline-block 内部垂直对齐 */
+  min-height: 3em;        /* 预留至少三行高度，避免跳动 */
+  text-align: center;     /* 居中 */
+
   }
   .cursor {
     display: inline-block;
@@ -273,13 +279,13 @@ main {
 .note > div {
   margin-top: 0;
   margin-left: 4px;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .note div div {
-  font-size: 12px;
+  font-size: 14px;
   margin-top: 8px;
-  line-height: 1.5;
+  line-height: 1.5; 
 }
 
 /* 关闭按钮 */
