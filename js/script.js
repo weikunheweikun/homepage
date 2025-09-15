@@ -115,27 +115,31 @@ note.addEventListener("touchstart", e => {
   const t = e.touches[0];
   const rect = note.getBoundingClientRect();
 
+  // 把当前便利贴放到最上层
+  note.style.zIndex = ++highestZIndex;
+
   // 记录手指在便利贴里的相对位置
   const shiftX = t.clientX - rect.left;
   const shiftY = t.clientY - rect.top;
 
-  function onTouchMove(e){
+  function onTouchMove(e) {
     const t = e.touches[0];
     note.style.left = (t.clientX - shiftX) + "px";
     note.style.top  = (t.clientY - shiftY) + "px";
     e.preventDefault(); // 防止页面跟着滚动
   }
 
-  function onTouchEnd(){
+  function onTouchEnd() {
     document.removeEventListener("touchmove", onTouchMove);
     document.removeEventListener("touchend", onTouchEnd);
   }
 
-  document.addEventListener("touchmove", onTouchMove, {passive:false});
+  document.addEventListener("touchmove", onTouchMove, { passive: false });
   document.addEventListener("touchend", onTouchEnd);
 });
 
 note.ondragstart = () => false;
+
 
   // ===== 添加到页面 =====
   document.body.appendChild(note);
@@ -168,40 +172,59 @@ function openItemModal(item){
     </div>
   `;
 
-  // ===== 拖拽逻辑 =====
-  let shiftX = 0, shiftY = 0;
+// ===== 拖拽逻辑 =====
+let shiftX = 0, shiftY = 0;
 
-  function startDrag(pageX, pageY){
-    const rect = modalContent.getBoundingClientRect();
-    shiftX = pageX - rect.left;
-    shiftY = pageY - rect.top;
-    modalContent.style.zIndex = ++highestZIndex;
+function startDrag(clientX, clientY) {
+  const rect = modalContent.getBoundingClientRect();
+  shiftX = clientX - rect.left;
+  shiftY = clientY - rect.top;
+  modalContent.style.zIndex = ++highestZIndex;
+}
+
+function moveAt(clientX, clientY) {
+  modalContent.style.left = (clientX - shiftX) + "px";
+  modalContent.style.top  = (clientY - shiftY) + "px";
+}
+
+// PC 端
+modalContent.addEventListener("mousedown", e => {
+  if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA" || e.target.classList.contains("close-btn")) return;
+  e.preventDefault();
+  startDrag(e.clientX, e.clientY);
+
+  function onMouseMove(e) { moveAt(e.clientX, e.clientY); }
+  function onMouseUp() {
+    document.removeEventListener("mousemove", onMouseMove);
+    document.removeEventListener("mouseup", onMouseUp);
   }
 
-  function moveAt(pageX, pageY){
-    modalContent.style.left = (pageX - shiftX) + 'px';
-    modalContent.style.top  = (pageY - shiftY) + 'px';
-  }
+  document.addEventListener("mousemove", onMouseMove);
+  document.addEventListener("mouseup", onMouseUp);
+});
 
-  modalContent.addEventListener("mousedown", e => {
-    if(e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA" || e.target.classList.contains("close-btn")) return;
-    e.preventDefault();
-    startDrag(e.pageX, e.pageY);
-    function onMouseMove(e){ moveAt(e.pageX, e.pageY); e.preventDefault(); }
-    function onMouseUp(){ document.removeEventListener("mousemove", onMouseMove); document.removeEventListener("mouseup", onMouseUp); }
-    document.addEventListener("mousemove", onMouseMove);
-    document.addEventListener("mouseup", onMouseUp);
-  });
+// 移动端
+modalContent.addEventListener("touchstart", e => {
+  if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA" || e.target.classList.contains("close-btn")) return;
+  const t = e.touches[0];
+  startDrag(t.clientX, t.clientY);
 
-  modalContent.addEventListener("touchstart", e => {
-    if(e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA" || e.target.classList.contains("close-btn")) return;
+  function onTouchMove(e) {
     const t = e.touches[0];
-    startDrag(t.pageX, t.pageY);
-    function onTouchMove(e){ const t = e.touches[0]; moveAt(t.pageX, t.pageY); e.preventDefault(); }
-    function onTouchEnd(){ document.removeEventListener("touchmove", onTouchMove); document.removeEventListener("touchend", onTouchEnd); }
-    document.addEventListener("touchmove", onTouchMove, {passive:false});
-    document.addEventListener("touchend", onTouchEnd);
-  });
+    moveAt(t.clientX, t.clientY);
+    e.preventDefault(); // 防止页面滚动
+  }
+  function onTouchEnd() {
+    document.removeEventListener("touchmove", onTouchMove);
+    document.removeEventListener("touchend", onTouchEnd);
+  }
+
+  document.addEventListener("touchmove", onTouchMove, { passive: false });
+  document.addEventListener("touchend", onTouchEnd);
+});
+
+modalContent.ondragstart = () => false;
+
 
   // 关闭按钮
   modalContent.querySelector(".close-btn").onclick = () => modalContent.remove();

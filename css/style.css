@@ -83,7 +83,12 @@
     25%,75% {opacity:0;}
   }
   
-  
+  .modal {
+  position: absolute; /* 必须 */
+  top: 100px;  /* 给个初始位置 */
+  left: 100px;
+}
+
 .random-btn {
   position: absolute;      /* 保留 JS 动态定位 */
   width: 150px;            /* 宽度 */
