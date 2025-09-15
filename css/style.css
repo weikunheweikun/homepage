@@ -128,8 +128,8 @@
   height: 100%;
   text-align: left;
   margin-top: 0;
-  margin-left: 5px;
-  font-size: 24px;
+  margin: 0 5px;  /* 左右统一 5px */
+  font-size: 20px;
 }
 
 .note strong {
@@ -137,7 +137,7 @@
 }
 
 .note div div {
-  font-size: 20 px;
+  font-size: 16px;
   margin-top: 8px;
   line-height: 1.5;
 }
