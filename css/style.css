@@ -38,7 +38,7 @@
     position: relative;
   }
   .typewriter {
-    font-size: 32px;
+    font-size: 26px;
     line-height: 1.8;
     white-space: pre-wrap;
     text-align: center;
@@ -263,8 +263,8 @@ main {
 
 /* 便利贴整体样式 */
 .note {
-  width: 1500px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   padding: 12px;
   border-radius: 6px;
 }
@@ -299,7 +299,7 @@ main {
 /* 弹窗样式 */
 #note-modal {
   width: 250px;
-  height: 250px;
+  height: 300px;
   border: 2px solid #d4af37;
   border-radius: 6px;
   padding: 12px;
