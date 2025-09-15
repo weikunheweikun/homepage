@@ -38,12 +38,18 @@
     position: relative;
   }
   .typewriter {
+    display: flex; 
+    justify-content: center;  /* 水平居中 */
+    align-items: center;      /* 垂直居中 */
+    flex-direction: column;
+    width: 100%;
     font-size: 26px;
     line-height: 1.8;
     white-space: pre-wrap;
     text-align: center;
   }
   #editable {
+    
     display: inline-block;
     font-size: 32px;
     color: #3E2F1C;
