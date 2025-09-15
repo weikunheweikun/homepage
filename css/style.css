@@ -235,11 +235,11 @@ main {
     padding: 0 20px;
   }
   .typewriter {
-    font-size: 24px;
+    font-size: 22px;
     line-height: 1.5;
   }
   #editable {
-    font-size: 24px;
+    font-size: 22px;
     min-width: 20px;
   }
   .cursor {
@@ -302,7 +302,7 @@ main {
   height: 280px;
   border: 2px solid #d4af37;
   border-radius: 6px;
-  padding: 8px;
+  padding: 12px;
 }
 
 /* 弹窗关闭按钮 */
@@ -340,7 +340,7 @@ main {
 }
 
 #note-modal #save-note-btn {
-  padding: 0px 14px;
+  padding: 0px 12px;
   border: 2px solid #2E4E3D;
   border-radius: 6px;
 }
