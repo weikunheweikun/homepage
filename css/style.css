@@ -51,6 +51,7 @@
   #editable {
     
     display: inline-block;
+    width: 100%;   
     font-size: 32px;
     color: #3E2F1C;
     outline: none;
@@ -62,7 +63,6 @@
   vertical-align: middle; /* 保证 inline-block 内部垂直对齐 */
   min-height: 3em;        /* 预留至少三行高度，避免跳动 */
   text-align: center;     /* 居中 */
-
   }
   .cursor {
     display: inline-block;
@@ -85,7 +85,7 @@
   background-color: #FAF1D8;  /* 背景色 */
   border: 2px solid #2E4E3D;  /* 边框 */
   color: #274233;             /* 文字颜色 */
-  font-size: 16px;         /* 字号 */
+  font-size: 20px;         /* 字号 */
   font-weight: bold;       /* 字体粗细 */
   text-align: center;      /* 文字居中 */
   cursor: pointer;         /* 鼠标样式 */
@@ -129,7 +129,7 @@
   text-align: left;
   margin-top: 0;
   margin-left: 5px;
-  font-size: 20px;
+  font-size: 24px;
 }
 
 .note strong {
@@ -137,7 +137,7 @@
 }
 
 .note div div {
-  font-size: 16px;
+  font-size: 20 px;
   margin-top: 8px;
   line-height: 1.5;
 }
