@@ -62,10 +62,12 @@ function addNoteToPage(title, content, showCloseBtn=false){
   note.className = "note";
 
   // ===== 随机位置 =====
-  const size = 200;
-  note.style.left = Math.random()*(window.innerWidth-size) + "px";
-  note.style.top  = Math.random()*(window.innerHeight-size) + "px";
+const vw = document.documentElement.clientWidth;
+const vh = document.documentElement.clientHeight;
+const size = 150;
 
+note.style.left = Math.random() * (vw - size) + "px";
+note.style.top  = Math.random() * (vh - size) + "px";
   // ===== 随机旋转 =====
   const deg = Math.random()*10 - 5;
   note.style.transform = `rotate(${deg}deg)`;
