@@ -277,10 +277,11 @@ function setupRandomButtons(){
     {text: "天气", content: "小心下雨，注意气温~"},
     {text: "周记", content: "这周没干啥，做了个网页就很开心~"},
     {text: "音乐", content: "本周给你推荐的歌是《听书》~"},
-    {text: "美食记", content: "在阳阳吃的红烧牛肉面还不错哦~"},
+    {text: "美食记", content: "在阳阳吃的红烧牛肉面还不错~"},
     {text: "本周所思", content: "什么时候才能找到工作哎~"},
-    {text: "深夜感想", content: "原来人活着也有这么累的时候嘛~"},
-    {text: "待办事项", content: "希望你没有待办事项哦~"},
+    {text: "深夜感想", content: "原来人活着也有这么累的时候~"}, 
+    {text: "待办事项", content: "希望你没有待办事项~"},
+    {text: "更新计划", content: "应该是不定期的，最迟一周一更~"},
     {text: "写张小纸条吧", content: ""}
   ];
   createRandomButtons(buttonData);
