@@ -328,7 +328,7 @@ main {
 /* 弹窗样式 */
 #note-modal {
   width: 280px;
-  height: 280px;
+  height: 320px;
   border: 2px solid #d4af37;
   border-radius: 6px;
   padding: 12px;
