@@ -146,10 +146,11 @@ function openItemModal(item){
     </div>
     <div>
       <label>内容：</label>
-      <textarea id="note-input" rows="5" placeholder="你想说的话或者想分享的事情~我可以看到的哦~"></textarea>
+      <textarea id="note-input" rows="5" placeholder="你想说的话或者想分享的事情~如果发送的话我可以看到的哦~"></textarea>
     </div>
     <div>
       <button id="save-note-btn">保存</button>
+      <button id="send-note-btn">发送</button>
     </div>
   `;
 
@@ -193,29 +194,43 @@ function openItemModal(item){
 
   document.body.appendChild(modalContent);
 
-  // 保存按钮
-  modalContent.querySelector("#save-note-btn").onclick = () => {
-    const title = modalContent.querySelector("#note-title").value.trim();
-    const content = modalContent.querySelector("#note-input").value.trim();
-    if(title || content){
-      addNoteToPage(title || "小纸条", content, true);
+  
+// 保存按钮（只生成便利贴）
+modalContent.querySelector("#save-note-btn").onclick = () => {
+  const title = modalContent.querySelector("#note-title").value.trim();
+  const content = modalContent.querySelector("#note-input").value.trim();
+  if (title || content) {
+    addNoteToPage(title || "小纸条", content, true);
+    modalContent.remove();
+  } else {
+    alert("请输入标题或内容哦~");
+  }
+};
 
-      // 提交到 Formbold
-      fetch("https://formbold.com/s/oa00y", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title: title, content: content })
-      }).then(res => {
+// 新增发送按钮（生成便利贴 + 发送表单）
+modalContent.querySelector("#send-note-btn").onclick = () => {
+  const title = modalContent.querySelector("#note-title").value.trim();
+  const content = modalContent.querySelector("#note-input").value.trim();
+  if (title || content) {
+    addNoteToPage(title || "小纸条", content, true);
+
+    // 发送表单
+    fetch("https://formbold.com/s/oa00y", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title: title, content: content })
+    })
+      .then(res => {
         if(res.ok) console.log("提交成功！");
         else console.error(res.statusText);
-      }).catch(err => console.error("网络错误", err));
+      })
+      .catch(err => console.error("网络错误", err));
 
-      modalContent.remove();
-    } else {
-      alert("请输入标题或内容哦~");
-    }
-  };
-}
+    modalContent.remove();
+  } else {
+    alert("请输入标题或内容哦~");
+  }
+};}
 
 // 创建随机按钮
 function setupRandomButtons(){

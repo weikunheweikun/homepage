@@ -233,8 +233,14 @@
   background: #fad775;
   cursor: pointer;
 }
-
-
+#note-modal #send-note-btn {
+  margin-left :5px;
+  padding: 0px 14px;
+  border: 2px solid #2E4E3D;
+  border-radius: 6px;
+  background: #fad775;
+  cursor: pointer;
+}
 
 @media (hover: none) and (pointer: coarse) {
   header {height: 100px;}
