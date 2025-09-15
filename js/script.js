@@ -111,17 +111,31 @@ function addNoteToPage(title, content, showCloseBtn=false){
     document.addEventListener("mouseup", onMouseUp);
   });
 
-  // 移动端拖动
-  note.addEventListener("touchstart", e => {
-    const t = e.touches[0];
-    startDrag(t.pageX, t.pageY);
-    function onTouchMove(e){ const t = e.touches[0]; moveAt(t.pageX, t.pageY); e.preventDefault(); }
-    function onTouchEnd(){ document.removeEventListener("touchmove", onTouchMove); document.removeEventListener("touchend", onTouchEnd); }
-    document.addEventListener("touchmove", onTouchMove, {passive:false});
-    document.addEventListener("touchend", onTouchEnd);
-  });
+note.addEventListener("touchstart", e => {
+  const t = e.touches[0];
+  const rect = note.getBoundingClientRect();
 
-  note.ondragstart = () => false;
+  // 记录手指在便利贴里的相对位置
+  const shiftX = t.clientX - rect.left;
+  const shiftY = t.clientY - rect.top;
+
+  function onTouchMove(e){
+    const t = e.touches[0];
+    note.style.left = (t.clientX - shiftX) + "px";
+    note.style.top  = (t.clientY - shiftY) + "px";
+    e.preventDefault(); // 防止页面跟着滚动
+  }
+
+  function onTouchEnd(){
+    document.removeEventListener("touchmove", onTouchMove);
+    document.removeEventListener("touchend", onTouchEnd);
+  }
+
+  document.addEventListener("touchmove", onTouchMove, {passive:false});
+  document.addEventListener("touchend", onTouchEnd);
+});
+
+note.ondragstart = () => false;
 
   // ===== 添加到页面 =====
   document.body.appendChild(note);
