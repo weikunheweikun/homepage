@@ -244,6 +244,7 @@
   border-radius: 6px;
   background: #fad775;
   cursor: pointer;
+  height:2em;
 }
 #note-modal #send-note-btn {
   margin-left :5px;
@@ -252,6 +253,7 @@
   border-radius: 6px;
   background: #fad775;
   cursor: pointer;
+  height:2em;
 }
 
 @media (hover: none) and (pointer: coarse) {
@@ -370,11 +372,13 @@ main {
 
 #note-modal #save-note-btn {
   padding: 0px 12px;
-  border: 2px solid #2E4E3D;
   border-radius: 6px;
 }
 
-
+#note-modal #send-note-btn {
+  padding: 0px 12px;
+  border-radius: 6px;
+}
 }
 
 
