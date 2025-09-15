@@ -245,6 +245,7 @@
   background: #fad775;
   cursor: pointer;
   height:2em;
+  font-size: 14px;
 }
 #note-modal #send-note-btn {
   margin-left :5px;
@@ -254,6 +255,7 @@
   background: #fad775;
   cursor: pointer;
   height:2em;
+  font-size: 14px;
 }
 
 @media (hover: none) and (pointer: coarse) {
