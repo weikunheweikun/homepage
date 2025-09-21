@@ -274,14 +274,14 @@ modalContent.querySelector("#send-note-btn").onclick = () => {
 // 创建随机按钮
 function setupRandomButtons(){
   const buttonData = [
-    {text: "天气", content: "小心下雨，注意气温~"},
-    {text: "周记", content: "这周没干啥，做了个网页就很开心~"},
-    {text: "音乐", content: "本周给你推荐的歌是《听书》~"},
-    {text: "美食记", content: "在阳阳吃的红烧牛肉面还不错~"},
-    {text: "本周所思", content: "什么时候才能找到工作哎~"},
-    {text: "深夜感想", content: "原来人活着也有这么累的时候~"}, 
-    {text: "待办事项", content: "希望你没有待办事项~"},
-    {text: "更新计划", content: "应该是不定期的，最迟一周一更~"},
+    {text: "天气", content: "马上就要到秋天啦～"},
+    {text: "周记", content: "难过的一周，换了台新电脑，感觉很好~"},
+    {text: "音乐", content: "本周给你推荐的歌是《苏慕遮》~"},
+    {text: "美食记", content: "胜博殿炸猪排，感觉很一般，建议不吃~"},
+    {text: "本周所思", content: "苦痛是生活的本质~"},
+    {text: "深夜感想", content: "原来住在一起真的会有很多矛盾啊~"}, 
+    {text: "待办事项", content: "这周差点没更新，新电脑刚打开哈哈哈~"},
+    {text: "更新计划", content: "应该是不定期的，每周天更新~"},
     {text: "小秘密", content: "网页上的字可以编辑的~"},
     {text: "写张小纸条吧", content: ""}
   ];
