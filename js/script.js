@@ -274,14 +274,14 @@ modalContent.querySelector("#send-note-btn").onclick = () => {
 // 创建随机按钮
 function setupRandomButtons(){
   const buttonData = [
-    {text: "天气", content: "昼夜温差大，注意穿衣～"},
-    {text: "周记", content: "这周吃的东西太多太油腻了，下次注意~"},
-    {text: "音乐", content: "本周给你推荐的歌是《等一分钟》~"},
-    {text: "美食记", content: "这周没吃啥，外卖了一份炸鸡，建议以后都别吃，一点儿都不干净~"},
-    {text: "本周所思", content: "现在的年轻人是不是比以前更不抗压了嘞~"},
-    {text: "深夜感想", content: "钱还是必须的，现实主义和浪漫主义还是有很多冲突的~"}, 
-    {text: "待办事项", content: "好多面试，都是教培都要试讲，感觉一点儿都不会~"},
-    {text: "更新计划", content: "应该是不定期的，确保每周天更新一次~"},
+    {text: "天气", content: "最近一周突然变冷，然后还一直下雨～"},
+    {text: "周记", content: "国庆假期，出去玩了两次，没意思，仅此而已~"},
+    {text: "音乐", content: "本周给你推荐的歌是《手放开》~"},
+    {text: "美食记", content: "这周外卖吃了个淮南牛肉汤，很不错，可以经常吃~"},
+    {text: "本周所思", content: "要多多关注关心自己，无微不至地~"},
+    {text: "深夜感想", content: "人还是得找事做，有事做就不会想太多~"}, 
+    {text: "待办事项", content: "找工作！还没找到估计年底了要饿死了~"},
+    {text: "更新计划", content: "应该是不定期的，确保每周天更新一次~这次国庆放个假哈哈哈～"},
     {text: "小秘密", content: "网页上的字是可以编辑的~可以给我写小纸条～"},
     {text: "写张小纸条吧", content: ""}
   ];
