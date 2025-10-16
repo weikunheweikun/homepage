@@ -274,10 +274,10 @@ modalContent.querySelector("#send-note-btn").onclick = () => {
 // 创建随机按钮
 function setupRandomButtons(){
   const buttonData = [
-    {text: "天气", content: "最近一周突然变冷，然后还一直下雨～"},
-    {text: "周记", content: "国庆假期，出去玩了两次，没意思，仅此而已~"},
-    {text: "音乐", content: "本周给你推荐的歌是《手放开》~"},
-    {text: "美食记", content: "这周外卖吃了个淮南牛肉汤，很不错，可以经常吃~"},
+    {text: "天气", content: "越来越冷了，头也不顶冷，经常头痛～"},
+    {text: "周记", content: "没啥好记的，啥也没干吧~"},
+    {text: "音乐", content: "本周给你推荐的歌是《何时梦里求》~"},
+    {text: "美食记", content: "这周吃了几次麦当劳，感觉越来越一般了~"},
     {text: "本周所思", content: "要多多关注关心自己，无微不至地~"},
     {text: "深夜感想", content: "人还是得找事做，有事做就不会想太多~"}, 
     {text: "待办事项", content: "找工作！还没找到估计年底了要饿死了~"},
