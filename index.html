@@ -1,3 +1,4 @@
+
 <!DOCTYPE html> 
 <html lang="zh">
 <head>
@@ -149,9 +150,9 @@ header p{color:#555;}
 
 }
 
-/* ===================== */
+/* ======================= */
 /* MOBILE ADAPTATION */
-/* ===================== */
+/* ======================= */
 
 @media (max-width:700px){
 
@@ -160,27 +161,55 @@ body{
   padding-top:60px;
 }
 
-.container{
-  padding:35px 25px;
+/* triangle bubble layout */
+
+.nav{
+  position:relative;
+  height:260px;
+  margin-bottom:30px;
+}
+
+.bubble{
+  position:absolute;
+  width:110px;
+  height:110px;
+  font-size:16px;
+}
+
+/* top bubble */
+
+.photo{
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+/* bottom left */
+
+.blog{
+  bottom:0;
+  left:10%;
+}
+
+/* bottom right */
+
+.reviews{
+  bottom:0;
+  right:10%;
+}
+
+/* updates bubble adjustment */
+
+.updates{
+  padding:22px;
+  max-width:300px;
 }
 
 header h1{
   font-size:2rem;
 }
 
-.nav{
-  gap:20px;
-}
-
-.bubble{
-  width:110px;
-  height:110px;
-  font-size:16px;
-}
-
-.updates{
-  padding:22px;
-}
+/* background bubbles smaller */
 
 .bg1,.bg2,.bg3,.bg4,.bg5,.bg6{
   transform:scale(0.7);
