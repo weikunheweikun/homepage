@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>点评 - 何炜坤</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
+  background:#ffffff;
+  color:#111;
+  line-height:1.6;
+}
+
+/* ===== NAVIGATION ===== */
+nav{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  padding:20px 0;
+  border-bottom:3px solid black;
+  background:#fff;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:40px;
+  margin:0;
+  padding:0;
+}
+
+nav li{
+  position:relative;
+}
+
+nav a{
+  text-decoration:none;
+  color:#111;
+  font-size:15px;
+  padding-bottom:6px;
+}
+
+/* Mondrian color accents */
+nav li:nth-child(1) a{border-bottom:4px solid #e63946}
+nav li:nth-child(2) a{border-bottom:4px solid #3a86ff}
+nav li:nth-child(3) a{border-bottom:4px solid #ffbe0b}
+nav li:nth-child(4) a{border-bottom:4px solid #000}
+
+nav a:hover{opacity:0.6}
+
+/* ===== BLOG LIST ===== */
+.blog-list{
+  max-width:720px;
+  margin:50px auto;
+  padding:0 20px;
+}
+
+.blog-list h1{
+  font-size:28px;
+  margin-bottom:30px;
+  text-align:center;
+}
+
+.blog-item{
+  padding:16px 0;
+  border-bottom:2px solid #eee;
+  font-size:16px;
+}
+
+.blog-item span{
+  color:#888;
+  margin-right:10px;
+  font-size:14px;
+}
+
+.blog-item a{
+  text-decoration:none;
+  color:#111;
+}
+
+.blog-item a:hover{text-decoration:underline}
+
+/* ===== FOOTER ===== */
+footer{
+  margin-top:70px;
+  padding:30px 20px;
+  text-align:center;
+  font-size:14px;
+  color:#666;
+  border-top:2px solid #eee;
+}
+
+footer a{
+  color:#333;
+  text-decoration:none;
+  margin:0 8px;
+}
+
+footer a:hover{text-decoration:underline}
+
+/* subtle vertical Mondrian line */
+body::before{
+  content:"";
+  position:fixed;
+  left:18%;
+  top:0;
+  width:3px;
+  height:100%;
+  background:black;
+  opacity:0.05;
+  pointer-events:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+<ul>
+<li><a href="https://heweikun.com">主页</a></li>
+<li><a href="https://photo.heweikun.com">摄影</a></li>
+<li><a href="https://heweikun.com/blog.html">博客</a></li>
+<li><a href="https://heweikun.com/review.html">点评</a></li>
+</ul>
+</nav>
+
+<!-- BLOG LIST -->
+<section class="blog-list">
+
+<h1>点评</h1>
+
+<div class="blog-item">
+<span>2026.03</span>
+<a href="#">黑格尔哲学的一点想法</a>
+</div>
+
+<div class="blog-item">
+<span>2026.02</span>
+<a href="#">点评：《沙丘2》</a>
+</div>
+
+<div class="blog-item">
+<span>2026.02</span>
+<a href="#">摄影：Tokyo Street</a>
+</div>
+
+<div class="blog-item">
+<span>2026.01</span>
+<a href="#">阅读笔记：视觉节奏</a>
+</div>
+
+<div class="blog-item">
+<span>2025.12</span>
+<a href="#">电影影评合集</a>
+</div>
+
+</section>
+
+<footer>
+© 2026 Walter He.
+</footer>
+
+</body>
+</html>
