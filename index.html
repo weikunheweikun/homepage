@@ -1,32 +1,33 @@
 
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="zh">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>何炜坤</title>
 
 <style>
+
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
-  font-family:"Helvetica Neue",Arial,sans-serif;
-  background:#e63946;
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:40px 20px;
+font-family:"Helvetica Neue",Arial,sans-serif;
+background:#e63946;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:40px 20px;
 }
 
-/* Background bubbles */
+/* Desktop background bubbles */
 
 .bg-bubble{
-  position:absolute;
-  border-radius:60% 40% 50% 50% / 50% 60% 40% 50%;
-  opacity:0.35;
-  filter:blur(2px);
-  animation:float 20s infinite ease-in-out, morph 10s infinite ease-in-out;
+position:absolute;
+border-radius:60% 40% 50% 50% / 50% 60% 40% 50%;
+opacity:0.35;
+filter:blur(2px);
+animation:float 20s infinite ease-in-out, morph 10s infinite ease-in-out;
 }
 
 .bg1{width:220px;height:220px;background:#ffe66d;top:10%;left:8%;}
@@ -36,183 +37,191 @@ body{
 .bg5{width:160px;height:160px;background:#457b9d;bottom:18%;left:12%;}
 .bg6{width:90px;height:90px;background:#f1faee;top:55%;right:28%;}
 
-/* Main container */
+/* Container */
 
 .container{
-  width:900px;
-  max-width:92vw;
-  padding:50px 40px;
-  background:#ffffff;
-  border-radius:60% 40% 55% 45% / 45% 55% 40% 60%;
-  box-shadow:0 40px 90px rgba(0,0,0,0.25);
-  animation:float 14s ease-in-out infinite, morph 12s ease-in-out infinite;
-  position:relative;
-  z-index:10;
+width:900px;
+max-width:92vw;
+padding:50px 40px;
+background:#ffffff;
+border-radius:60% 40% 55% 45% / 45% 55% 40% 60%;
+box-shadow:0 40px 90px rgba(0,0,0,0.25);
+animation:float 14s ease-in-out infinite, morph 12s ease-in-out infinite;
+position:relative;
+z-index:10;
 }
 
 header{text-align:center;margin-bottom:40px;}
 
 header h1{
-  font-size:2.6rem;
-  margin-bottom:8px;
+font-size:2.6rem;
+margin-bottom:8px;
 }
 
 header p{color:#555;}
 
-/* Navigation bubbles */
+/* Navigation */
 
 .nav{
-  display:flex;
-  justify-content:center;
-  gap:35px;
-  flex-wrap:wrap;
-  margin-bottom:40px;
+display:flex;
+justify-content:center;
+gap:35px;
+flex-wrap:wrap;
+margin-bottom:40px;
 }
 
 .bubble{
-  width:150px;
-  height:150px;
-  border-radius:60% 40% 55% 45% / 45% 55% 40% 60%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:white;
-  font-size:18px;
-  font-weight:bold;
-  cursor:pointer;
-  text-align:center;
-  transition:transform .35s ease, box-shadow .35s ease;
-  animation:float 12s infinite ease-in-out, morph 8s infinite ease-in-out;
+width:150px;
+height:150px;
+border-radius:60% 40% 55% 45% / 45% 55% 40% 60%;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+text-align:center;
+transition:transform .35s ease, box-shadow .35s ease;
+animation:float 12s infinite ease-in-out, morph 8s infinite ease-in-out;
 }
 
 .bubble:hover{
-  transform:scale(1.08);
-  box-shadow:0 20px 40px rgba(0,0,0,0.25);
+transform:scale(1.08);
+box-shadow:0 20px 40px rgba(0,0,0,0.25);
 }
 
 .photo{background:#1d3557;}
 .blog{background:#ff6b6b;}
 .reviews{background:#ffd166;color:#222;}
 
-/* Recent updates */
+/* Updates */
 
 .updates{
-  padding:30px;
-  border-radius:55% 45% 60% 40% / 50% 60% 40% 50%;
-  background:#f1faee;
-  animation:float 16s ease-in-out infinite, morph 10s infinite ease-in-out;
-  max-width:420px;
-  margin:0 auto;
-  text-align:center;
+padding:30px;
+border-radius:55% 45% 60% 40% / 50% 60% 40% 50%;
+background:#f1faee;
+animation:float 16s ease-in-out infinite, morph 10s infinite ease-in-out;
+max-width:420px;
+margin:0 auto;
+text-align:center;
 }
 
-.updates h2{
-  margin-bottom:14px;
-}
+.updates h2{margin-bottom:14px;}
 
 .updates ul{
-  list-style:none;
-  margin-top:10px;
+list-style:none;
+margin-top:10px;
 }
 
-.updates li{
-  margin:10px 0;
-}
+.updates li{margin:10px 0;}
 
 .updates a{
-  text-decoration:none;
-  color:#333;
-  font-weight:500;
-  display:inline-block;
-  transition:transform .25s ease, color .25s ease;
-}
-
-.updates a:hover{
-  transform:translateY(-3px);
-  color:#e63946;
+text-decoration:none;
+color:#333;
+font-weight:500;
 }
 
 /* Animations */
 
 @keyframes float{
-  0%{transform:translateY(0px);}
-  50%{transform:translateY(-15px);}
-  100%{transform:translateY(0px);}
+0%{transform:translateY(0px);}
+50%{transform:translateY(-15px);}
+100%{transform:translateY(0px);}
 }
 
 @keyframes morph{
-
 0%{border-radius:60% 40% 55% 45% / 45% 55% 40% 60%;}
 25%{border-radius:50% 60% 40% 60% / 60% 40% 60% 40%;}
 50%{border-radius:55% 45% 65% 35% / 40% 60% 50% 50%;}
 75%{border-radius:65% 35% 50% 50% / 55% 45% 65% 35%;}
 100%{border-radius:60% 40% 55% 45% / 45% 55% 40% 60%;}
-
 }
 
-/* ======================= */
-/* MOBILE ADAPTATION */
-/* ======================= */
+/* ================= */
+/* MOBILE VERSION */
+/* ================= */
 
 @media (max-width:700px){
 
 body{
-  align-items:flex-start;
-  padding-top:60px;
+align-items:flex-start;
+padding-top:80px;
 }
 
-/* triangle bubble layout */
+/* remove white container */
+
+.container{
+background:transparent;
+box-shadow:none;
+animation:none;
+padding:0;
+}
+
+
+/* layout */
 
 .nav{
-  position:relative;
-  height:260px;
-  margin-bottom:30px;
+position:relative;
+width:320px;
+height:340px;
+margin:0 auto 40px auto;
 }
+
+/* bubble base */
 
 .bubble{
-  position:absolute;
-  width:110px;
-  height:110px;
-  font-size:16px;
+position:absolute;
+width:120px;
+height:120px;
+font-size:16px;
 }
 
-/* top bubble */
+/* centered top bubble */
 
 .photo{
-  top:0;
-  left:50%;
-  transform:translateX(-50%);
+top:0;
+left:100px;
+background:#1d3557;
 }
 
 /* bottom left */
 
 .blog{
-  bottom:0;
-  left:10%;
+top:120px;
+left:0;
+background:#ffd166;
+color:#222;
 }
 
 /* bottom right */
 
 .reviews{
-  bottom:0;
-  right:10%;
+top:120px;
+right:0;
+background:#457b9d;
 }
 
-/* updates bubble adjustment */
+/* updates bubble bottom */
 
 .updates{
-  padding:22px;
-  max-width:300px;
+position:absolute;
+top:400px;
+left:30%;
+transform:translateX(-50%);
+width:200px;
+padding:20px;
+background:#f1faee;
+animation:float 16s ease-in-out infinite, morph 10s infinite ease-in-out;
 }
 
 header h1{
-  font-size:2rem;
+font-size:2rem;
+color:#f1faee;
 }
 
-/* background bubbles smaller */
-
-.bg1,.bg2,.bg3,.bg4,.bg5,.bg6{
-  transform:scale(0.7);
+header p{
+color:#f1faee;
 }
 
 }
