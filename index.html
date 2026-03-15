@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="zh">
 <head>
 <meta charset="UTF-8" />
@@ -11,14 +11,15 @@
 body{
   font-family:"Helvetica Neue",Arial,sans-serif;
   background:#e63946;
-  height:100vh;
-  overflow:hidden;
+  min-height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
+  padding:40px 20px;
 }
 
 /* Background bubbles */
+
 .bg-bubble{
   position:absolute;
   border-radius:60% 40% 50% 50% / 50% 60% 40% 50%;
@@ -35,6 +36,7 @@ body{
 .bg6{width:90px;height:90px;background:#f1faee;top:55%;right:28%;}
 
 /* Main container */
+
 .container{
   width:900px;
   max-width:92vw;
@@ -49,11 +51,15 @@ body{
 
 header{text-align:center;margin-bottom:40px;}
 
-header h1{font-size:2.6rem;margin-bottom:8px;}
+header h1{
+  font-size:2.6rem;
+  margin-bottom:8px;
+}
 
 header p{color:#555;}
 
 /* Navigation bubbles */
+
 .nav{
   display:flex;
   justify-content:center;
@@ -83,11 +89,11 @@ header p{color:#555;}
   box-shadow:0 20px 40px rgba(0,0,0,0.25);
 }
 
-.photo{background:#1d3557;animation-delay:0s;}
-.blog{background:#ff6b6b;animation-delay:2s;}
-.reviews{background:#ffd166;color:#222;animation-delay:4s;}
+.photo{background:#1d3557;}
+.blog{background:#ff6b6b;}
+.reviews{background:#ffd166;color:#222;}
 
-/* Recent updates bubble */
+/* Recent updates */
 
 .updates{
   padding:30px;
@@ -105,7 +111,6 @@ header p{color:#555;}
 
 .updates ul{
   list-style:none;
-  padding:0;
   margin-top:10px;
 }
 
@@ -129,22 +134,57 @@ header p{color:#555;}
 /* Animations */
 
 @keyframes float{
-  0%{transform:translateY(0px);} 
-  50%{transform:translateY(-15px);} 
-  100%{transform:translateY(0px);} 
+  0%{transform:translateY(0px);}
+  50%{transform:translateY(-15px);}
+  100%{transform:translateY(0px);}
 }
 
 @keyframes morph{
 
 0%{border-radius:60% 40% 55% 45% / 45% 55% 40% 60%;}
-
 25%{border-radius:50% 60% 40% 60% / 60% 40% 60% 40%;}
-
 50%{border-radius:55% 45% 65% 35% / 40% 60% 50% 50%;}
-
 75%{border-radius:65% 35% 50% 50% / 55% 45% 65% 35%;}
-
 100%{border-radius:60% 40% 55% 45% / 45% 55% 40% 60%;}
+
+}
+
+/* ===================== */
+/* MOBILE ADAPTATION */
+/* ===================== */
+
+@media (max-width:700px){
+
+body{
+  align-items:flex-start;
+  padding-top:60px;
+}
+
+.container{
+  padding:35px 25px;
+}
+
+header h1{
+  font-size:2rem;
+}
+
+.nav{
+  gap:20px;
+}
+
+.bubble{
+  width:110px;
+  height:110px;
+  font-size:16px;
+}
+
+.updates{
+  padding:22px;
+}
+
+.bg1,.bg2,.bg3,.bg4,.bg5,.bg6{
+  transform:scale(0.7);
+}
 
 }
 
@@ -153,7 +193,6 @@ header p{color:#555;}
 
 <body>
 
-<!-- background bubbles -->
 <div class="bg-bubble bg1"></div>
 <div class="bg-bubble bg2"></div>
 <div class="bg-bubble bg3"></div>
@@ -189,8 +228,8 @@ header p{color:#555;}
 <h2>最近更新</h2>
 
 <ul>
-<li> <a href="https://heweikun.com/blog/blog1.html">2026.03.15 第一次博客——网页重制</a></li>
-<li> <a href="https://heweikun.com">2026.03.15 主页上新！</a></li>
+<li><a href="https://heweikun.com/blog/blog1.html">2026.03.15 第一次博客——网页重制</a></li>
+<li><a href="https://heweikun.com">2026.03.15 主页上新！</a></li>
 </ul>
 
 </div>
