@@ -6,6 +6,40 @@
 <title>点评 - 何炜坤</title>
 
 <style>
+
+
+/* bubbles */
+
+.bubble-bg{
+position:fixed;
+border-radius:60% 40% 50% 50% / 50% 60% 40% 50%;
+pointer-events:none;
+z-index:0;
+animation:float 18s infinite ease-in-out,
+morph 14s infinite ease-in-out;
+}
+
+/* animations */
+
+@keyframes float{
+0%{transform:translateY(0px);}
+50%{transform:translateY(-12px);}
+100%{transform:translateY(0px);}
+}
+
+@keyframes morph{
+
+0%{border-radius:60% 40% 55% 45% / 45% 55% 40% 60%;}
+25%{border-radius:50% 60% 40% 60% / 60% 40% 60% 40%;}
+50%{border-radius:55% 45% 65% 35% / 40% 60% 50% 50%;}
+75%{border-radius:65% 35% 50% 50% / 55% 45% 65% 35%;}
+100%{border-radius:60% 40% 55% 45% / 45% 55% 40% 60%;}
+
+}
+
+
+
+
 *{box-sizing:border-box}
 
 body{
@@ -149,6 +183,94 @@ body::before{
 <footer>
 © 2026 Walter He.
 </footer>
+
+
+
+
+<script>
+
+const colors=[
+"rgba(230,57,70,0.35)",
+"rgba(58,134,255,0.35)",
+"rgba(255,190,11,0.35)"
+];
+
+/* 页面高度 */
+
+const pageHeight=document.body.scrollHeight;
+
+/* 每隔多少px放一行泡泡 */
+
+const spacing=300;
+
+const rows=Math.ceil(pageHeight/spacing);
+
+/* 左右位置（vw） */
+
+const leftMin=5;
+const leftMax=20;
+
+const rightMin=70;
+const rightMax=95;
+
+for(let i=0;i<rows;i++){
+
+const y=i*spacing+Math.random()*120;
+
+/* 左侧 */
+
+const leftBubble=document.createElement("div");
+
+leftBubble.className="bubble-bg";
+
+const size=70+Math.random()*80;
+
+leftBubble.style.width=size+"px";
+leftBubble.style.height=size+"px";
+
+leftBubble.style.left=(leftMin+Math.random()*(leftMax-leftMin))+"vw";
+leftBubble.style.top=y+"px";
+
+leftBubble.style.background=
+colors[Math.floor(Math.random()*colors.length)];
+
+leftBubble.style.animationDuration=
+(14+Math.random()*10)+"s";
+
+document.body.appendChild(leftBubble);
+
+/* 右侧 */
+
+const rightBubble=document.createElement("div");
+
+rightBubble.className="bubble-bg";
+
+const size2=70+Math.random()*80;
+
+rightBubble.style.width=size2+"px";
+rightBubble.style.height=size2+"px";
+
+rightBubble.style.left=(rightMin+Math.random()*(rightMax-rightMin))+"vw";
+rightBubble.style.top=(y+Math.random()*80)+"px";
+
+rightBubble.style.background=
+colors[Math.floor(Math.random()*colors.length)];
+
+rightBubble.style.animationDuration=
+(14+Math.random()*10)+"s";
+
+document.body.appendChild(rightBubble);
+
+}
+
+</script>
+
+
+
+
+
+
+
 
 </body>
 </html>
