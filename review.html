@@ -7,6 +7,25 @@
 
 <style>
 
+/* ================= */
+/* mobile adjustment */
+/* ================= */
+
+@media (max-width:700px){
+
+/* 调整蒙德里安线条 */
+
+body::before{
+left:6%;
+opacity:0.03;
+}
+
+.mobile-bubble{
+opacity:0.25;
+}
+
+}
+
 
 /* bubbles */
 
@@ -211,7 +230,7 @@ const leftMin=5;
 const leftMax=20;
 
 const rightMin=70;
-const rightMax=95;
+const rightMax=90;
 
 for(let i=0;i<rows;i++){
 
@@ -262,6 +281,82 @@ rightBubble.style.animationDuration=
 document.body.appendChild(rightBubble);
 
 }
+
+
+
+
+/* ================= */
+/* mobile bubbles */
+/* ================= */
+
+if(window.innerWidth <= 700){
+
+const mobileColors=[
+"rgba(230,57,70,0.25)",  // 红
+"rgba(58,134,255,0.25)", // 蓝
+"rgba(255,190,11,0.25)"  // 黄
+];
+
+const pageHeight=document.body.scrollHeight;
+
+/* 每行高度 */
+const rowHeight = 250;
+
+/* 行数 */
+const rows = Math.ceil(pageHeight / rowHeight);
+
+for(let r=0;r<rows;r++){
+
+    /* 每行1-2个泡泡 */
+    const count = 1 + Math.floor(Math.random()*2);
+
+    for(let i=0;i<count;i++){
+
+        const bubble=document.createElement("div");
+        bubble.className="bubble-bg mobile-bubble";
+
+        const size=60+Math.random()*60;
+
+        bubble.style.width=size+"px";
+        bubble.style.height=size+"px";
+
+        let left;
+
+        /* 随机决定左边还是右边 */
+        const side = Math.random() < 0.5 ? "left" : "right";
+
+        if(side==="left"){
+            left = 0 + Math.random()*10;   // 左侧区域
+        }else{
+            left = 90 + Math.random()*10;  // 右侧区域
+        }
+
+        const top =
+        r*rowHeight + rowHeight/2 + (Math.random()*80-40);
+
+        bubble.style.left = (left-10) + "vw";
+        bubble.style.top = top + "px";
+
+        bubble.style.background =
+        mobileColors[Math.floor(Math.random()*mobileColors.length)];
+
+        bubble.style.animationDuration =
+        (16+Math.random()*8)+"s";
+
+        bubble.style.opacity="0.25";
+
+        document.body.appendChild(bubble);
+
+    }
+
+}
+
+}
+
+
+
+
+
 
 </script>
 

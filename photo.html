@@ -21,10 +21,8 @@ left:6%;
 opacity:0.03;
 }
 
-/* 隐藏桌面泡泡 */
-
-.bubble-bg{
-display:none;
+.mobile-bubble{
+opacity:0.25;
 }
 
 }
@@ -204,7 +202,7 @@ z-index:1;
 </footer>
 
 <script>
-
+if(window.innerWidth > 700){
 const colors=[
 "rgba(230,57,70,0.35)",
 "rgba(58,134,255,0.35)",
@@ -227,7 +225,7 @@ const leftMin=5;
 const leftMax=20;
 
 const rightMin=70;
-const rightMax=95;
+const rightMax=90;
 
 for(let i=0;i<rows;i++){
 
@@ -279,6 +277,7 @@ document.body.appendChild(rightBubble);
 
 }
 
+}
 
 
 
@@ -289,48 +288,66 @@ document.body.appendChild(rightBubble);
 if(window.innerWidth <= 700){
 
 const mobileColors=[
-"rgba(230,57,70,0.25)",
-"rgba(58,134,255,0.25)",
-"rgba(255,190,11,0.25)"
+"rgba(230,57,70,0.25)",  // 红
+"rgba(58,134,255,0.25)", // 蓝
+"rgba(255,190,11,0.25)"  // 黄
 ];
 
 const pageHeight=document.body.scrollHeight;
 
-/* 泡泡数量根据页面高度 */
+/* 每行高度 */
+const rowHeight = 250;
 
-const bubbleCount=Math.ceil(pageHeight/180);
+/* 行数 */
+const rows = Math.ceil(pageHeight / rowHeight);
 
-for(let i=0;i<bubbleCount;i++){
+for(let r=0;r<rows;r++){
 
-const bubble=document.createElement("div");
+    /* 每行1-2个泡泡 */
+    const count = 1 + Math.floor(Math.random()*2);
 
-bubble.className="bubble-bg";
+    for(let i=0;i<count;i++){
 
-const size=60+Math.random()*80;
+        const bubble=document.createElement("div");
+        bubble.className="bubble-bg mobile-bubble";
 
-bubble.style.width=size+"px";
-bubble.style.height=size+"px";
+        const size=60+Math.random()*60;
 
-/* 整个页面随机 */
+        bubble.style.width=size+"px";
+        bubble.style.height=size+"px";
 
-bubble.style.left=(Math.random()*100)+"vw";
-bubble.style.top=(Math.random()*pageHeight)+"px";
+        let left;
 
-bubble.style.background=
-mobileColors[Math.floor(Math.random()*mobileColors.length)];
+        /* 随机决定左边还是右边 */
+        const side = Math.random() < 0.5 ? "left" : "right";
 
-bubble.style.animationDuration=
-(14+Math.random()*10)+"s";
+        if(side==="left"){
+            left = 0 + Math.random()*10;   // 左侧区域
+        }else{
+            left = 90 + Math.random()*10;  // 右侧区域
+        }
 
-bubble.style.opacity="0.25";
+        const top =
+        r*rowHeight + rowHeight/2 + (Math.random()*80-40);
 
-document.body.appendChild(bubble);
+        bubble.style.left = (left-10) + "vw";
+        bubble.style.top = top + "px";
+
+        bubble.style.background =
+        mobileColors[Math.floor(Math.random()*mobileColors.length)];
+
+        bubble.style.animationDuration =
+        (16+Math.random()*8)+"s";
+
+        bubble.style.opacity="0.25";
+
+        document.body.appendChild(bubble);
+
+    }
 
 }
 
 }
-
-
 
 
 
