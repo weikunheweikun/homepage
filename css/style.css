@@ -146,3 +146,73 @@ opacity:0.03;
 100%{border-radius:60% 40% 55% 45% / 45% 55% 40% 60%;}
 
 }
+
+
+
+/* ================= */
+/* article layout */
+/* ================= */
+
+.article-container{
+max-width:720px;
+margin:80px auto;
+padding:0 20px;
+position:relative;
+z-index:5;
+}
+
+.article-container h1{
+font-size:32px;
+margin-bottom:30px;
+text-align:center;
+}
+
+.content{
+font-size:17px;
+line-height:1.9;
+color:#222;
+}
+
+.content p{
+margin-bottom:20px;
+}
+
+/* 标题 */
+
+.content h2{
+margin-top:40px;
+margin-bottom:12px;
+font-size:22px;
+}
+
+.content h3{
+margin-top:30px;
+margin-bottom:10px;
+font-size:18px;
+}
+
+/* 引用 */
+
+.content blockquote{
+border-left:4px solid #ddd;
+padding-left:16px;
+color:#666;
+margin:20px 0;
+}
+
+/* 图片 */
+
+.content img{
+max-width:100%;
+margin:25px auto;
+display:block;
+}
+
+/* 代码 */
+
+.content code{
+background:#f3f3f3;
+padding:3px 6px;
+border-radius:4px;
+font-size:14px;
+}
