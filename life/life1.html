@@ -26,21 +26,11 @@
   <div class="content">
     <p>今天下雨，中午自己煮煮吃吃。</p>
 
-<video id="video" controls poster="https://vz-c3cc9386-0f1.b-cdn.net/9f7d1643-694a-4fad-9ac9-b070fcb7f9ff/thumbnail_51399098.jpg" style="width:100%;max-width:720px;"></video>
-
-<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-<script>
-const video = document.getElementById('video');
-const videoSrc = 'https://vz-c3cc9386-0f1.b-cdn.net/9f7d1643-694a-4fad-9ac9-b070fcb7f9ff/playlist.m3u8';
-
-if (Hls.isSupported()) {
-  const hls = new Hls();
-  hls.loadSource(videoSrc);
-  hls.attachMedia(video);
-} else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-  video.src = videoSrc;
-}
-</script>
+<iframe src="https://iframe.mediadelivery.net/embed/638839/9f7d1643-694a-4fad-9ac9-b070fcb7f9ff"
+        loading="lazy"
+        style="width:100%;aspect-ratio:16/9;border:0;"
+        allowfullscreen>
+</iframe>
 
   </div>
 
