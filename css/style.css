@@ -234,6 +234,7 @@ font-size:14px;
     flex-shrink: 0;
     object-fit: cover;
     background-color: #f5f5f5;
+    border-radius: 10px;
 }
 
 /* Hover 动效优化 */
