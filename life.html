@@ -4,8 +4,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>生活 - 何炜坤</title>
-<link rel="stylesheet" href="https://heweikun.com/css/style.css">
+<link rel="stylesheet" href="./css/style.css">
+
 </head>
+<style>
+    .blog-item a:hover{
+    text-decoration:none;
+    }
+    .blog-item span{
+    font-size:16px;
+    }
+    .blog-item{
+    font-size:18px;
+    }
+    .blog-item iframe {
+    margin-top:15px; /* 数值可以根据你的喜好调整，通常 15px-30px 比较合适 */
+    margin-bottom:15px; /* 数值可以根据你的喜好调整，通常 15px-30px 比较合适 */
+    display: block;   /* 确保外边距生效 */
+    border-radius: 8px;   /* 顺便给视频加个圆角，会更好看 */
+    }
+
+</style>
+
 
 <body>
 
@@ -25,9 +45,31 @@
 <h1>生活</h1>
 
 <div class="blog-item">
-<span>2026.04.16</span>
-<a href="https://heweikun.com/life/life1.html">今天的午餐——包装云南小锅米线</a>
+    <span>2026.04.20</span>
+    <a>今天的照片</a>
+
+    <div class="photo-scroll">
+        <img src="./life/20260420-1.jpg">
+        <img src="./life/20260420-2.jpg">
+        <img src="./life/20260420-3.jpg">
+        <img src="./life/20260420-4.jpg">
+        <img src="./life/20260420-5.jpg">
+        <img src="./life/20260420-6.jpg">
+        <img src="./life/20260420-7.jpg">
+    </div>
+</div> <!-- 👈 必须在这里关掉 -->
+
+
+<div class="blog-item">
+    <span>2026.04.16</span>
+    <a>今天的午餐——包装云南小锅米线</a>
+    <iframe src="https://iframe.mediadelivery.net/embed/638839/9f7d1643-694a-4fad-9ac9-b070fcb7f9ff"
+            style="width:100%;aspect-ratio:16/9;border:0;"
+            allowfullscreen>
+    </iframe>
 </div>
+
+
 
 </section>
 
@@ -36,5 +78,9 @@ Contact me: weikunheweikun@gmail.com
 </footer>
 
 <script src="https://heweikun.com/js/bubbles.js"></script>
+
+
+
+
 </body>
 </html>
