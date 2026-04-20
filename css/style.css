@@ -252,12 +252,11 @@ font-size:14px;
     width: 100vw;
     height: 100vh;
     object-fit: contain; /* 保证图片完整显示 */
-    z-index: 1000;
+    z-index: 1000 !important;
     background: rgba(0, 0, 0, 0.9); /* 半透明黑色背景 */
     cursor: zoom-out;
     border-radius: 0; /* 全屏时去掉圆角 */
     transform: scale(1); /* 重置 hover 的放大效果 */
-    z-index: 99;
 }
 
 /* 锁定滚动条，防止放大时页面还能滑 */
