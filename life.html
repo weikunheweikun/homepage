@@ -80,26 +80,51 @@ Contact me: weikunheweikun@gmail.com
 <script src="https://heweikun.com/js/bubbles.js"></script>
 
 <script>
-    document.querySelectorAll('.photo-scroll img').forEach(img => {
-    img.onclick = function() {
-        this.classList.toggle('fullscreen');
-        document.body.classList.toggle('no-scroll');
-    };
-});
-
 document.querySelectorAll('.photo-scroll img').forEach(img => {
     img.onclick = function() {
-        const isFullscreen = this.classList.toggle('fullscreen');
         const nav = document.querySelector('nav');
         
-        if (isFullscreen) {
-            if(nav) nav.style.zIndex = "1"; // 图片放大时，把导航栏降到 1 层
+        if (!this.classList.contains('fullscreen')) {
+            // --- 1. 进入放大状态 ---
+            
+            // 创建一个替身 div，宽高和现在的图片一模一样
+            const placeholder = document.createElement('div');
+            placeholder.id = 'img-placeholder';
+            placeholder.style.width = this.offsetWidth + 'px';
+            placeholder.style.height = this.offsetHeight + 'px';
+            placeholder.style.flexShrink = '0'; // 防止缩写
+            placeholder.style.backgroundColor = 'transparent'; // 透明占位
+            
+            // 把替身插在图片原来的位置
+            this.parentNode.insertBefore(placeholder, this);
+            
+            // 放大图片
+            this.classList.add('fullscreen');
+            document.body.classList.add('no-scroll');
+            if(nav) nav.style.zIndex = "1";
         } else {
-            if(nav) nav.style.zIndex = "10"; // 图片缩小时，恢复到 10 层
+            // --- 2. 退出放大状态 ---
+            
+            this.classList.remove('fullscreen');
+            document.body.classList.remove('no-scroll');
+            if(nav) nav.style.zIndex = "10";
+            
+            // 移除替身
+            const placeholder = document.getElementById('img-placeholder');
+            if (placeholder) {
+                placeholder.remove();
+            }
+            
+            // 此时图片回到原位，因为替身一直撑着，位置绝对不会跳
         }
     };
 });
-
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const fullImg = document.querySelector('img.fullscreen');
+        if (fullImg) fullImg.click(); // 模拟点击关闭
+    }
+});
 </script>
 
 
