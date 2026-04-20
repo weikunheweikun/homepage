@@ -79,7 +79,14 @@ Contact me: weikunheweikun@gmail.com
 
 <script src="https://heweikun.com/js/bubbles.js"></script>
 
-
+<script>
+    document.querySelectorAll('.photo-scroll img').forEach(img => {
+    img.onclick = function() {
+        this.classList.toggle('fullscreen');
+        document.body.classList.toggle('no-scroll');
+    };
+});
+</script>
 
 
 </body>

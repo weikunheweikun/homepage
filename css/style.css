@@ -243,3 +243,23 @@ font-size:14px;
     /* 提升当前图片的层级，防止被邻近图片挡住（虽然在 flex 中效果有限，但习惯较好） */
     z-index: 2;
 }
+
+/* 点击后的全屏遮罩样式 */
+.photo-scroll img.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: contain; /* 保证图片完整显示 */
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.9); /* 半透明黑色背景 */
+    cursor: zoom-out;
+    border-radius: 0; /* 全屏时去掉圆角 */
+    transform: scale(1); /* 重置 hover 的放大效果 */
+}
+
+/* 锁定滚动条，防止放大时页面还能滑 */
+body.no-scroll {
+    overflow: hidden;
+}
