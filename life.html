@@ -86,6 +86,20 @@ Contact me: weikunheweikun@gmail.com
         document.body.classList.toggle('no-scroll');
     };
 });
+
+document.querySelectorAll('.photo-scroll img').forEach(img => {
+    img.onclick = function() {
+        const isFullscreen = this.classList.toggle('fullscreen');
+        const nav = document.querySelector('nav');
+        
+        if (isFullscreen) {
+            if(nav) nav.style.zIndex = "1"; // 图片放大时，把导航栏降到 1 层
+        } else {
+            if(nav) nav.style.zIndex = "10"; // 图片缩小时，恢复到 10 层
+        }
+    };
+});
+
 </script>
 
 
