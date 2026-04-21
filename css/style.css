@@ -124,7 +124,7 @@ body::before {
 body::after {
     content: "";
     position: fixed;
-    right: 25%; /* 设定右侧位置，不对称 */
+    right: 18%; /* 设定右侧位置，不对称 */
     top: 15vh;   /* 让它向下偏移，不从顶部开始 */
     width: 3px;
     height: 70vh; /* 设定不规则高度（70% 视口高度） */
@@ -152,7 +152,7 @@ left:4%;
 opacity:0.03;
 }
 body::after{
-right:6%;
+right:4%;
 opacity:0.03;
 top: 30vh;  /* 进一步向下偏移，腾出顶部空间 */
 height: 40vh; /* 显著缩短，避免干扰阅读 */
@@ -293,4 +293,56 @@ font-size:14px;
 /* 锁定滚动条，防止放大时页面还能滑 */
 body.no-scroll {
     overflow: hidden;
+}
+
+
+
+
+
+
+.masthead {
+    /* 1. 绝对定位在屏幕左下角 */
+    position: fixed;
+    right: 20px;     /* 距离左边距离 */
+    bottom: 30px;   /* 距离底部距离，根据视觉调整 */
+    z-index: 100;   /* 确保在最上层 */
+
+    /* 2. 竖排文字核心 */
+    writing-mode: vertical-rl;
+    transform: rotate(180deg); /* 让文字头朝上 */
+    
+    /* 3. 样式细节 */
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: #999;
+    text-transform: uppercase;
+    white-space: nowrap; /* 强制不换行 */
+    
+    pointer-events: none; /* 防止挡住鼠标点击 */
+}
+
+/* 手机端如果嫌挤，可以隐藏它 */
+@media (max-width: 700px) {
+    .masthead { display: none; }
+}
+
+
+
+.blog-item {
+    opacity: 0; /* 初始完全透明 */
+    animation: fadeInUp 0.8s ease forwards; 
+    /* forwards 让动画停在最后一帧，backwards 让它在延迟期间保持第一帧（透明） */
+    animation-fill-mode: both; 
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

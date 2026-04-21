@@ -131,3 +131,9 @@ document.body.appendChild(bubble);
 
 
 
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.blog-item').forEach((item, index) => {
+        // 缩短延迟，增加紧凑感
+        item.style.animationDelay = `${index * 0.2}s`;
+    });
+});
