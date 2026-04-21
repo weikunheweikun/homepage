@@ -131,9 +131,15 @@ document.body.appendChild(bubble);
 
 
 
+
 document.addEventListener('DOMContentLoaded', () => {
+    // 检查当前页面是否禁用了动画
+    if (document.body.classList.contains('no-animation-page')) {
+        return; // 如果有这个类，直接跳过下面的动画逻辑
+    }
+
+    // 原有的动画逻辑
     document.querySelectorAll('.blog-item').forEach((item, index) => {
-        // 缩短延迟，增加紧凑感
         item.style.animationDelay = `${index * 0.2}s`;
     });
 });

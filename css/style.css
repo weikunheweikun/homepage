@@ -346,3 +346,10 @@ body.no-scroll {
         transform: translateY(0);
     }
 }
+
+body.no-animation-page .blog-item {
+    animation: none !important;
+    opacity: 1 !important;    /* 确保它是显示的 */
+    transform: none !important;
+    transition: none !important;
+}
