@@ -107,17 +107,40 @@ z-index:5;
 
 /* mondrian vertical line */
 
-body::before{
-content:"";
-position:fixed;
-left:18%;
-top:0;
-width:3px;
-height:100%;
-background:black;
-opacity:0.05;
-pointer-events:none;
-z-index:1;
+body::before {
+    content: "";
+    position: fixed;
+    left: 18%; /* 保持你原来的位置 */
+    top: 0;
+    width: 3px;
+    height: 100%; /* 全屏高度 */
+    background: rgb(0, 0, 255);
+    opacity: 0.05; /* 淡淡的黑色 */
+    pointer-events: none;
+    z-index: 1; /* 确保在最底层，不挡内容 */
+}
+
+/* --- ✨ 新增右侧蒙德里安竖线 --- */
+body::after {
+    content: "";
+    position: fixed;
+    right: 25%; /* 设定右侧位置，不对称 */
+    top: 15vh;   /* 让它向下偏移，不从顶部开始 */
+    width: 3px;
+    height: 70vh; /* 设定不规则高度（70% 视口高度） */
+    
+    /* 蒙德里安灵魂：引入颜色！ */
+    /* 建议使用你 nav 栏用过的颜色：#3a86ff (蓝) 或 #e63946 (红) */
+    background: #e63946; 
+    
+    /* 透明度可以稍微比左边高一点点，突出几何感 */
+    opacity: 0.08; 
+    
+    pointer-events: none;
+    z-index: 1; /* 层次与左线一致 */
+    
+    /* 可选：加个圆角，更现代一点点 */
+    border-radius: 2px;
 }
 
 /* mobile adjustment */
@@ -125,8 +148,14 @@ z-index:1;
 @media (max-width:700px){
 
 body::before{
-left:6%;
+left:4%;
 opacity:0.03;
+}
+body::after{
+right:6%;
+opacity:0.03;
+top: 30vh;  /* 进一步向下偏移，腾出顶部空间 */
+height: 40vh; /* 显著缩短，避免干扰阅读 */
 }
 
 }
