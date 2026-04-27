@@ -74,7 +74,12 @@ margin-bottom:30px;
 text-align:center;
 font-family: "Noto Serif SC", serif; font-weight: 700;
 }
-
+.blog-list h2{
+font-size:24px;
+margin-bottom:30px;
+text-align:center;
+font-family: "Noto Serif SC", serif; font-weight: 700;
+}
 .blog-item{
 padding:16px 0;
 border-bottom:2px solid #eee;
@@ -356,4 +361,17 @@ body.no-animation-page .blog-item {
     opacity: 1 !important;    /* 确保它是显示的 */
     transform: none !important;
     transition: none !important;
+}
+
+
+.custom-img {
+    height: 400px;
+    width: auto; /* 保持原始宽高比 */
+}
+
+@media (max-width: 700px) {
+    .custom-img {
+    height: 250px;
+    width: auto; /* 保持原始宽高比 */
+}
 }
