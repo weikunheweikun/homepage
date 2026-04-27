@@ -365,13 +365,13 @@ body.no-animation-page .blog-item {
 
 
 .custom-img {
-    height: 400px;
+    height: 450px;
     width: auto; /* 保持原始宽高比 */
 }
 
 @media (max-width: 700px) {
     .custom-img {
-    height: 250px;
+    height: 300px;
     width: auto; /* 保持原始宽高比 */
 }
 }
